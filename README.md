@@ -9,7 +9,8 @@ pv-tron-panel-volume.yaml
 pv-tron-postgress.yaml
 pv-tron-rabbitmq-volume.yaml
 pv-tron-s3-volume.yaml
-4) Создаем ингресс
+4) Создаем ингресс 
+kubectl create namespace ingress-nginx
 helm upgrade --install ingress-nginx ingress-nginx \
   --repo https://kubernetes.github.io/ingress-nginx \
   --namespace ingress-nginx --create-namespace
