@@ -9,9 +9,21 @@ pv-tron-panel-volume.yaml
 pv-tron-postgress.yaml
 pv-tron-rabbitmq-volume.yaml
 pv-tron-s3-volume.yaml
-4) Создаем ингресс 
+4) Создаем ингресс - https://kubernetes.github.io/ingress-nginx/deploy/
 kubectl create namespace ingress-nginx
+
 helm upgrade --install ingress-nginx ingress-nginx \
   --repo https://kubernetes.github.io/ingress-nginx \
   --namespace ingress-nginx --create-namespace
-https://kubernetes.github.io/ingress-nginx/deploy/
+
+
+Проверяем:
+kubectl get service ingress-nginx-controller --namespace=ingress-nginx
+kubectl get ingressClasses
+
+
+
+** можно выбрать ingress из таблицы
+https://docs.google.com/spreadsheets/d/191WWNpjJ2za6-nbG4ZoUMXMpUK8KlCIosvQB0f-oq3k/edit#gid=907731238
+
+kubectl delete ingressClasses nginx
