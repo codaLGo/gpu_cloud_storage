@@ -1,0 +1,18 @@
+ apiVersion: v1
+ kind: PersistentVolume
+ metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: cinder.csi.openstack.org
+  name: pv-tron-rabbitmq-volume
+  namespace: tron
+ spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: cinder.csi.openstack.org
+    fsType: ext4
+    volumeHandle: 460dec40-2d27-4663-ac91-8cf8dd287842
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: tron-k8s-sc
