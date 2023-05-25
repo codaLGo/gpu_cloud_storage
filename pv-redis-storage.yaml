@@ -1,0 +1,18 @@
+ apiVersion: v1
+ kind: PersistentVolume
+ metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: cinder.csi.openstack.org
+  name: pv-redis-storage
+  namespace: tron
+ spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: cinder.csi.openstack.org
+    fsType: ext4
+    volumeHandle: 0215ba5b-3cbc-4de6-b732-d21d9c890b3f
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: tron-k8s-sc
