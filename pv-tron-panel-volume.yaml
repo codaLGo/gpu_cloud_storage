@@ -1,0 +1,18 @@
+ apiVersion: v1
+ kind: PersistentVolume
+ metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: cinder.csi.openstack.org
+  name: pv-tron-panel-volume
+  namespace: tron
+ spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  csi:
+    driver: cinder.csi.openstack.org
+    fsType: ext4
+    volumeHandle: 22727816-0c6c-4f74-92b9-489c05b45721
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: tron-k8s-sc
